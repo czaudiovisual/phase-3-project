@@ -1,4 +1,5 @@
 import React from 'react'
+import { link } from "react-router-dom"
 
 class Movies extends React.Component {
     state = {
@@ -12,13 +13,19 @@ class Movies extends React.Component {
     };
 
     renderMovies = () => {
-        this.state.movies.map((movie) => {
-            return <li>${movie.name}</li>;
+        return this.state.movies.map((movie) => {
+            return <li>{movie.name}</li>
             });
         };
     
         render() {
-            return <ul>{this.renderMovies()}</ul>; 
+            return ( 
+                <div>
+                    <link to="movies/new">New Movie</link>
+                    <ul>{this.renderMovies()}</ul>
+                </div>
+            );
+            
         }
     }
 
