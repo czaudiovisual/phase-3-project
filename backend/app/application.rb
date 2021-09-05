@@ -10,7 +10,8 @@ class Application
       # POST /movies (create action)
     elsif req.path.match(/movies/) && req.post?
       data = JSON.parse req.body.read
-      movie = Movie.create(data)
+      puts data
+      movie = Movie.create(data, theater_id: 1)
       return [200, { 'Content-Type' => 'application/json' }, [ movie.to_json ]]
       # DELETE /movies (destroy action)
     elsif req.delete?
