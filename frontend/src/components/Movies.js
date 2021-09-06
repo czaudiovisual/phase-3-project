@@ -68,11 +68,9 @@ class Movies extends React.Component {
     render() {
         return (
             <div>
-
-
                 <Link to="movies/new">New Movie</Link>
                 <div className="back-button">
-                <label for="exampleInputEmail1" class="form-label"> Movie Theaters </label>
+                    <label for="exampleInputEmail1" class="form-label"> Movie Theaters </label>
                     <select
                         onChange={this.handleOnChange}
                         name="theater_id" id="">

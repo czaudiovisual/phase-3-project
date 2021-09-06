@@ -56,8 +56,10 @@ class NewMovieForm extends React.Component {
         const { name, description, img_url } = this.state
         return (
             <div>
-                <div className="back-button">
-                    <select
+                <div className="back-button" >
+                    <select 
+                    
+                    class="btn btn-secondary dropdown-toggle"
                         onChange={this.handleOnChange}
                         name="theater_id" id="">
                         {this.renderTheatersForm()}
