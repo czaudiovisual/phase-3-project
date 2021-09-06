@@ -23,3 +23,15 @@
   float: left;
   width: 20%;
 }
+
+.form-box {
+  margin: 25px auto;
+  flex-direction: column;
+  width: 30%;
+  max-width: 600px;
+  display: flex;
+}
+
+.back-button {
+  margin-top: 25px;
+}
