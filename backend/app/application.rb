@@ -10,9 +10,9 @@ class Application
       return [200, { 'Content-Type' => 'application/json' }, [ movies.to_json ]]
 
       #GET /theaters (index action)
-    if req.path.match(/theaters/) && req.get?
-      theaters = theater.all
-      return [200, { 'Content-Type' => 'application/json' }, [ theater.to_json ]]
+    elsif req.path.match(/theaters/) && req.get?
+      theaters = Theater.all
+      return [200, { 'Content-Type' => 'application/json' }, [ theaters.to_json ]]
       
       # POST /movies (create action)
     elsif req.path.match(/movies/) && req.post?

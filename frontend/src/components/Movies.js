@@ -9,13 +9,13 @@ class Movies extends React.Component {
     componentDidMount() {
         fetch("http://localhost:9292/movies")
             .then((res) => res.json())
-            .then((theaters) => this.setState({ theaters }));
+            .then((movies) => this.setState({ movies }));
     };
 
     renderMovies = () => {
         return this.state.movies.map((movie) => {
             return <div className="card-box">
-                <p className="movie-titles">{movie.name}</p>
+                
                 <img className="img-poster" src={movie.img_url} alt="img-url"/>
                 </div>
         });
@@ -24,8 +24,10 @@ class Movies extends React.Component {
     render() {
         return (
             <div>
+                <button>
                 <Link to="/movies/new">New Movie</Link>
-                <ul>{this.renderMovies()}</ul>
+                </button>
+                <h1>{this.renderMovies()}</h1>
             </div>
         );
 
