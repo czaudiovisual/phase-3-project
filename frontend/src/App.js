@@ -8,12 +8,12 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/movies" component={Movies} />
-          <Route path="/movies/new" component={NewMoviesForm} />
+          <Route exact path="/movies" component={Movies} />
+          <Route exact path="/movies/new" component={NewMovieForm} />
         </Switch>
       </Router>
     </div>
-    );
+  );
 }
 
 export default App;
