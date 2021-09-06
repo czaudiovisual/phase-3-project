@@ -30,11 +30,14 @@ class Movies extends React.Component {
     deleteClick = (event) => {
         console.log(event.target.id)
         fetch(`http://localhost:9292/movies/${event.target.id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
         })
             .then(() => {
                 const filterMovies = this.state.movies.filter(movie => {
-                    console.log(movie, "hello-------------------------", event.target.id != movie.id);
+                    console.log(movie, "Deleted -----", event.target.id != movie.id);
                     return movie.id != event.target.id
                 })
                 return this.setState({
@@ -65,7 +68,11 @@ class Movies extends React.Component {
     render() {
         return (
             <div>
-                <div>
+
+
+                <Link to="movies/new">New Movie</Link>
+                <div className="back-button">
+                <label for="exampleInputEmail1" class="form-label"> Movie Theaters </label>
                     <select
                         onChange={this.handleOnChange}
                         name="theater_id" id="">
@@ -73,8 +80,6 @@ class Movies extends React.Component {
                         {this.renderTheatersForm()}
                     </select>
                 </div>
-
-                <Link to="movies/new">New Movie</Link>
                 <ul>{this.renderMovies()}</ul>
             </div>
         );

@@ -1,5 +1,4 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 class NewMovieForm extends React.Component {
@@ -37,7 +36,6 @@ class NewMovieForm extends React.Component {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(this.state),
             body: JSON.stringify({
                 name: this.state.name,
                 theater_id: this.state.theater_id,
@@ -58,7 +56,7 @@ class NewMovieForm extends React.Component {
         const { name, description, img_url } = this.state
         return (
             <div>
-                <div>
+                <div className="back-button">
                     <select
                         onChange={this.handleOnChange}
                         name="theater_id" id="">
@@ -69,19 +67,17 @@ class NewMovieForm extends React.Component {
                 <form className="form-box" onSubmit={this.handleOnSubmit}>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control input-sm" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                        <div id="emailHelp" class ="form-text">We'll never share your email with anyone else.
-                        </div>
-                    </div>
-
-                    <label>name</label>
-                    <input
+                        <label for="name" class="form-label">Movie Name</label>
+                        <input 
+                        class="form-control input-sm" 
                         type="text"
                         name="name"
                         value={name}
                         id=""
                         onChange={this.handleOnChange} />
+                    </div>
+
+                    
                     <label>description</label>
                     <input
                         type="text"
