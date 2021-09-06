@@ -5,7 +5,7 @@ class NewMovieForm extends React.Component {
     state = {
         name: "",
         description: "",
-        theater_id: null,
+        theater_id: 1,
         theaters: [],
     };
 
