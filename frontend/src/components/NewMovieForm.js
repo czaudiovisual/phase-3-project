@@ -5,6 +5,7 @@ class NewMovieForm extends React.Component {
     state = {
         name: "",
         description: "",
+        img_url: "",
         theater_id: 1,
         theaters: [],
     };
@@ -24,19 +25,24 @@ class NewMovieForm extends React.Component {
 
     handleOnSubmit = (event) => {
         event.preventDefault()
-        const addNewMovie = {
+        fetch("http://localhost:9292/movies/new", this.addNewMovie())
+            .then(res => res.json())
+            .then(movies => this.props.history.push("/movies"));
+    };
+    addNewMovie = () => {
+        return {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
+            body: JSON.stringify(this.state),
             body: JSON.stringify({
                 name: this.state.name,
                 theater_id: this.state.theater_id,
+                description: this.state.description,
+                img_url: this.state.img_url,
             }),
-        };
-        fetch("http://localhost:9292/movies/new", addNewMovie())
-            .then(res => res.json())
-            .then(movies => this.props.history.push("/movies"));
+        }
     };
 
     
@@ -49,7 +55,7 @@ class NewMovieForm extends React.Component {
     }
     
     render() {
-        const { name, description } = this.state
+        const { name, description, img_url } = this.state
         return (
             <div>
             <div>
@@ -72,6 +78,13 @@ class NewMovieForm extends React.Component {
                     type="text"
                     name="description"
                     value={description}
+                    id=""
+                    onChange={this.handleOnChange} />
+                    <label>Image Url</label>
+                <input
+                    type="text"
+                    name="img_url"
+                    value={img_url}
                     id=""
                     onChange={this.handleOnChange} />
                 <button type="submit">Submit</button>

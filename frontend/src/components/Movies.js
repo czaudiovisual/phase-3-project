@@ -27,7 +27,7 @@ class Movies extends React.Component {
             return <div className="card-box">
                 <h1 className="movie-titles">{movie.name}</h1>
                 <img className="img-poster" src={movie.img_url} alt="img-url" />
-                <p className="movie-titles">{movie.description}</p>
+                {/* <p className="movie-titles">{movie.description}</p> */}
                 {/* <button id={deleteData.id} onClick={deleteClick}>Delete</button> */}
             </div>
         });
