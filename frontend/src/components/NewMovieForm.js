@@ -22,16 +22,9 @@ class NewMovieForm extends React.Component {
         });
     };
 
-
     handleOnSubmit = (event) => {
         event.preventDefault()
-        fetch("http://localhost:9292/movies/new", this.addNewMovie())
-            .then(res => res.json())
-            .then(movies => this.props.history.push("/movies"));
-    };
-
-    addNewMovie = () => {
-        return {
+        const addNewMovie = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -40,46 +33,53 @@ class NewMovieForm extends React.Component {
                 name: this.state.name,
                 theater_id: this.state.theater_id,
             }),
-        }
+        };
+        fetch("http://localhost:9292/movies/new", addNewMovie())
+            .then(res => res.json())
+            .then(movies => this.props.history.push("/movies"));
     };
 
+    
+    
+    
     renderTheatersForm = () => {
         return this.state.theaters.map(theaters => {
             return <option value={theaters.id}>{theaters.name}</option>
         });
     }
-
+    
     render() {
         const { name, description } = this.state
         return (
             <div>
-                <div>
-                    <select
-                        onChange={this.handleOnChange}
-                        name="theater_id" id="">
-                        {this.renderTheatersForm()}
-                    </select>
-                </div>
-                <form className="form-box" onSubmit={this.handleOnSubmit}>
-                    <label>name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={name}
-                        id=""
-                        onChange={this.handleOnChange} />
-                    <label>description</label>
-                    <input
-                        type="text"
-                        name="description"
-                        value={description}
-                        id=""
-                        onChange={this.handleOnChange} />
-                    <button type="submit">Submit</button>
-                </form>
+            <div>
+                <select
+                    onChange={this.handleOnChange}
+                    name="theater_id" id="">
+                    {this.renderTheatersForm()}
+                </select>
             </div>
-        );
-    };
-}
+            <form className="form-box" onSubmit={this.handleOnSubmit}>
+                <label>name</label>
+                <input
+                    type="text"
+                    name="name"
+                    value={name}
+                    id=""
+                    onChange={this.handleOnChange} />
+                <label>description</label>
+                <input
+                    type="text"
+                    name="description"
+                    value={description}
+                    id=""
+                    onChange={this.handleOnChange} />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    );
+};
 
+
+};
 export default NewMovieForm;
