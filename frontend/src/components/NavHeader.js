@@ -4,7 +4,7 @@ const NavHeader = (props) => {
     return (
         <header className="nav-header">
             <h1>{props.title}</h1>
-            <div>
+            <div className="nav-links">
                 <ul><a href="/movies"> Home </a></ul>
                 <ul><a href="/movies/new"> Add Movie </a></ul>
             </div>

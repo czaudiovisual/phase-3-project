@@ -68,8 +68,9 @@ class Movies extends React.Component {
     render() {
         return (
             <div>
-                <Link to="movies/new">New Movie</Link>
                 <div className="back-button">
+                    <div className="card-wrapper">
+
                     <label for="exampleInputEmail1" class="form-label"> Movie Theaters </label>
                     <select
                         onChange={this.handleOnChange}
@@ -77,6 +78,7 @@ class Movies extends React.Component {
                         <option value="all"> All</option>
                         {this.renderTheatersForm()}
                     </select>
+                    </div>
                 </div>
                 <ul>{this.renderMovies()}</ul>
             </div>
