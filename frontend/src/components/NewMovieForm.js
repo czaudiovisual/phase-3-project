@@ -68,37 +68,41 @@ class NewMovieForm extends React.Component {
 
                     <div class="mb-3">
                         <label for="name" class="form-label">Movie Name</label>
-                        <input 
-                        class="form-control input-sm" 
-                        type="text"
-                        name="name"
-                        value={name}
-                        id=""
-                        onChange={this.handleOnChange} />
+                        <input
+                            class="form-control input-sm"
+                            type="text"
+                            name="name"
+                            value={name}
+                            id=""
+                            onChange={this.handleOnChange} />
                     </div>
-
-                    
-                    <label>description</label>
-                    <input
-                        type="text"
-                        name="description"
-                        value={description}
-                        id=""
-                        onChange={this.handleOnChange} />
-                    <label>Image Url</label>
-                    <input
-                        type="text"
-                        name="img_url"
-                        value={img_url}
-                        id=""
-                        onChange={this.handleOnChange} />
-                    <div className="back-button">
-                        <Button
-                            size="large"
-                            variant="contained"
-                            color="primary"
-                            type="submit">Add Movie
-                        </Button>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Add description</label>
+                        <input
+                            class="form-control input-sm"
+                            type="text"
+                            name="description"
+                            value={description}
+                            id=""
+                            onChange={this.handleOnChange} />
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Image Url</label>
+                        <input
+                            class="form-control input-sm"
+                            type="text"
+                            name="img_url"
+                            value={img_url}
+                            id=""
+                            onChange={this.handleOnChange} />
+                        <div className="back-button">
+                            <Button
+                                size="large"
+                                variant="contained"
+                                color="primary"
+                                type="submit">Add Movie
+                            </Button>
+                        </div>
                     </div>
                 </form>
             </div>
