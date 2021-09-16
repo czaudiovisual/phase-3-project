@@ -27,7 +27,7 @@ class Movies extends React.Component {
 
     handleOnChange = (event) => {
         this.setState({
-            [event.target.name] : event.target.value
+            [event.target.name]: event.target.value
         });
     };
 
@@ -96,23 +96,23 @@ class Movies extends React.Component {
             return <div className="card-box">
                 <h3 className="movie-titles">{movie.name}</h3>
                 <img className="img-poster" src={movie.img_url} alt="img-url" />
-                {/* <p className="movie-titles">{movie.description}</p> */}
-                <button id={movie.id} onClick={this.deleteClick}>Delete</button>
+                <button className="button-img" id={movie.id} onClick={this.deleteClick}>Delete</button>
+                    <p className="movie-titles"><small>{movie.description}</small></p>
             </div>
         });
     };
-    
+
     render() {
         return (
-            <div>
+            <div className="">
                 <div className="back-button">
                     <div className="card-wrapper">
-                    <label for="exampleInputEmail1" class="form-label"> Movie Theaters </label>
-                    <select
-                        onChange={this.handleOnChange}
-                        name="theater_id" id={this.state.movies.theater_id}>
-                        {this.renderTheatersForm()}
-                    </select>
+                        <label for="exampleInputEmail1" class="form-label"> Movie Theaters </label>
+                        <select
+                            onChange={this.handleOnChange}
+                            name="theater_id" id={this.state.movies.theater_id}>
+                            {this.renderTheatersForm()}
+                        </select>
                     </div>
                 </div>
                 <ul>{this.renderMovies()}</ul>

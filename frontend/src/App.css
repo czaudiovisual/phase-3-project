@@ -15,6 +15,9 @@ span{
     color: white;
   }
 
+.button-img {
+  margin-bottom: 20px;
+}
 .App {
   text-align: center;
 }
@@ -27,19 +30,20 @@ span{
 }
 
 .card-box {
-  margin-right: 10px;
+  margin-right: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
   box-shadow: 0 0px 20px 0 rgba(0,0,0,0.2);
   background-color: rgba(238, 80, 106, 0.336);
   transition: 0.3s;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  width: 500px;
-  font-size: smaller;
-  padding: 15px;
+  font-size: small;
+  padding: 8px;
   float: left;
-  width: 22%;
+  width: 20%;
+  height: 650px;
+  
 }
 
 .form-box {
