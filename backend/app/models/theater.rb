@@ -1,3 +1,3 @@
 class Theater < ActiveRecord::Base
-    has_many :Movies
+    has_many :movies
 end

@@ -1,3 +1,3 @@
 class Movie < ActiveRecord::Base
-    belongs_to :Theater
+    belongs_to :theater
 end

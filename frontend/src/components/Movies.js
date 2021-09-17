@@ -20,7 +20,7 @@ class Movies extends React.Component {
     handleOnChange = (event) => {
         const { value } = event.target;
         if (value == "all")
-            return this.setState({ movies: this.state.movies });
+            return this.setState({ filterAllMovies: this.state.movies });
         const filterAllMovies = this.state.movies.filter(movie => {
             return movie.theater_id == value
         })
