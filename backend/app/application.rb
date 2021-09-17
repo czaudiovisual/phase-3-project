@@ -1,3 +1,5 @@
+
+
 class Application
 
   def call(env)
@@ -18,7 +20,6 @@ class Application
       data = JSON.parse req.body.read
       puts data
       movie = Movie.create(data)
-      movie.save
       return [200, { 'Content-Type' => 'application/json' }, [ movie.to_json ]]
      
       # DELETE /movies (destroy action)
